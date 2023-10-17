@@ -1,8 +1,5 @@
 #!/bin/bash
-#CPU
-
-
-
+#CPU [not added yet]
 #GPU
 FILE=/sys/bus/pci/devices/0000\:01\:00.0/power/runtime_status
 if  test -f "$FILE"; then
