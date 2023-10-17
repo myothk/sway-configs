@@ -1,9 +1,6 @@
 # .bash_profile
+
 #Env variables
-echo "Setting environment variables..."
-
-
-###################################################
 export EDITOR='nvim'
 export XDG_SCREENSHOTS_DIR=/home/mthk/Pictures/Screenshots
 export XDG_CURRENT_DESKTOP=sway
@@ -29,19 +26,11 @@ export SDL_VIDEODRIVER=wayland
 
 #[Firefox]
 export MOZ_ENABLE_WAYLAND=1
-####################################################
-
-
-echo "Done."
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
-## Startup stuff here ##
-echo "Loading required stuffs..."
-echo "Done."
-
-### Start i3 here ###
+### Start sway here ###
 if [[ $(tty) == "/dev/tty1" ]] 
 then
 	exec dbus-run-session sway --unsupported-gpu
