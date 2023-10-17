@@ -1,0 +1,78 @@
+/*
+Require font awesome 6 and nerd fonts for the glyphs.
+*/
+@keyframes swaymode{
+	0%{background-color:rgb(255,5,5);}
+	50%{background-color:rgb(55,0,51);}
+	100%{background-color:rgb(255,5,5);}
+}
+* {
+font-family: Cousine Nerd Font;
+border:solid 1px transparent;
+border-radius:0px;
+font-size: 12px;
+box-shadow:none;
+}
+window#waybar {
+background-color:rgba(42,0,51,0.8);
+box-shadow:none;
+}
+#workspaces * {
+border-radius:10px;
+font-size: 15px;
+}
+#workspaces {
+
+}
+#workspaces *:hover{
+background-color:black;
+}
+#workspaces button{
+color:white;
+}
+#workspaces button:hover{
+box-shadow: none;
+text-shadow: none;
+background: none;
+transition: none;
+background-color: #9e2b46;
+}
+#workspaces button.focused {
+color: black;
+background-color: #f5426c;
+border:solid 1px white;
+}
+#workspaces button.urgent {
+}
+
+#mode{
+background-color: rgb(42,0,51);
+color:white;
+animation-name: swaymode;
+animation-duration: 0.8s;
+animation-iteration-count:infinite;
+}
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-fanmode,
+#custom-gpu,
+#disk,
+#pulseaudio,
+#language,
+#mpd {
+	padding: 0px 12px;
+	margin-top: 1.5px;
+	margin-bottom: 1.5px;
+	margin-right: 3px;
+	color: #bbb;
+	border-radius: 20px;
+	background-color: rgba(22,113,199,0.2);
+}
