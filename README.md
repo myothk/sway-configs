@@ -10,6 +10,7 @@ polkit - mate-polkit (because it have no dependency)
 filemanager - lf  
 editor - neovim  
 image viewer - imv  
+wallpaper - https://wallhaven.cc/w/kxj3l1
   
 Currently text previews of files without extension are shown twice in lf. (Need to figure out a better way).  
   
