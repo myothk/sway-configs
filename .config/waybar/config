@@ -1,0 +1,119 @@
+//My Way Bar
+//Need nerd fonts, and fontawesome6.
+{
+	"position": "top",
+	"height": 30,
+	"modules-left": ["sway/workspaces","cpu","custom/gpu","custom/fanmode","sway/language"],
+	"modules-center": ["tray","sway/mode"],
+	"modules-right": ["network","pulseaudio","memory","disk","clock","battery"],
+	
+	//moduels configuration
+	"sway/workspaces":{
+		"disable-scroll":true,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+
+			"urgent": "",
+			//"focused": "\uf32e",
+			"default": ""
+		},
+		"persistent_workspaces":{
+			"1":[],
+			"2":[],
+			"3":[],
+			"4":[]
+		}
+	},
+	
+	"clock": {
+		"format": "{:%I:%M<small> %p</small>}",
+		"interval": 1,
+		"format-alt": "{:%a %d/%m/%y - %T}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar":{
+			"mode"		: "year",
+			"mode-mon-col"	: 3,
+			"weeks-pos"	: "right",
+			"on-scroll"	: 1,
+			"on-click-right": "mode",
+			"format": {
+				"months":	"<span color='#ffead3'><b>{}</b></span>",
+				"days":		"<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":	"<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":	"<span color='#ffcc66'><b>{}</b></span>",
+				"today":	"<span bgcolor='#d8d8d8' color='#000000'><b>{}</b></span>"
+			}
+		},
+		"actions": {
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}	
+	},
+	"network": {
+		"format-wifi": "{bandwidthUpBits} {bandwidthDownBits}",
+		"format-disconnected":"",
+		"interval": 1,
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",	
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "CPU: {}%"
+	},
+	"custom/gpu": {
+		"interval": 1,
+		"format": "{}",
+		"exec": "~/.config/scripts/gpustat.sh 2> /dev/null",
+		"tooltip":false
+	},
+	"memory":{
+		"format": "{used:.2f}/{total:.2f} GiB",
+		"interval": 1
+	},
+	"pulseaudio": {
+        	"format": "{icon} {volume}%{format_source}",
+        	"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": "{icon}󰖁 {format_source}",
+		"format-muted": "󰖁 {volume}% {format_source}",
+		"format-source": "",
+		"format-source-muted": "",
+		"format-icons": {
+                	"headphones": "",
+                	"handsfree": "󰟎",
+                	"headset": "󰋋",
+                	"phone": "",
+                	"portable": "",
+                	"car": "",
+                	"default": ["","",""]
+            	},
+            	"on-click": "pavucontrol"
+	},
+	"battery":{
+		"bat": "BAT0",
+		"states": {
+			"warning": 30,
+			"critical": 15,
+		},
+		"format": "{capacity} {icon}",
+		"format-charging": "{capacity} 󰂅",
+        	"format-icons": ["󰁺","󰁼","󰁽","󰁾","󰁿","󰂁","󰂂","󰁹"],
+        	"tooltip-format": "{time}"
+	},
+	"tray": {
+		"icon-size":21,
+		"spacing":10
+	},
+	"disk":{
+    		"interval": 30,
+    		"format": "{free}"
+	},
+	"custom/fanmode": {
+		"exec": "~/.config/scripts/fanmodecontrol.sh show 2> /dev/null",
+		"interval": 1,
+		"tooltip": false,
+	}	
+}
