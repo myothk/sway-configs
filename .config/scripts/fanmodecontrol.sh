@@ -14,17 +14,6 @@ if test -f "$FILE";then
 		if [ $speed -gt 2 ]; then
 			speed=0
 		fi
-
-		if echo $speed > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy; then
-			case $speed in
-				0) echo "Balanced" > $OUTPUT;;
-				1) echo "Turbo" > $OUTPUT;;
-				2) echo "Silent" > $OUTPUT;;
-				*) echo "Error!" > $OUTPUT;;
-			esac	
-		else echo "Error!"
-		fi
-	else
-		:
+		echo $speed > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy
 	fi
 fi
