@@ -99,7 +99,7 @@ exec pipewire
 exec wireplumber
 exec pipewire-pulse
 exec /usr/libexec/polkit-mate-authentication-agent-1
-#exec waybar
+exec /usr/libexec/xdg-desktop-portal -r
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg ~/Pictures/wallpapers/mountain_1920x1080.png fill
 exec_always {
