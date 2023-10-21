@@ -18,7 +18,10 @@ default_floating_border pixel 2
 input "2821:6246:Asus_Keyboard" {
 	xkb_layout "us,mm"
 	xkb_options "grp:alt_space_toggle"
+	repeat_delay 200
+	repeat_rate 30
 }
+
 ## Display ###
 output eDP-1 {
 	scale 1
@@ -87,11 +90,6 @@ exec pipewire-pulse
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec /usr/libexec/xdg-desktop-portal -r
 output * bg ~/Pictures/wallpapers/mountain_1920x1080.png fill
-exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "Raleigh"
-  gsettings set org.gnome.desktop.interface icon-theme "Papirus"
-}
-
 
 #Configs 
 mode "resize" {
