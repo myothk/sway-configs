@@ -23,7 +23,7 @@ set icons true
 cmd open &{{
 	case $(file --mime-type -Lb $f) in
 		text/*) lf -remote "send $id \$$EDITOR \$fx";;
-		image) for f in $fx; do imv $f > /dev/null 2> /dev/null & done;;
+		image/*) for f in $fx; do imv $f > /dev/null 2> /dev/null & done;;
 		*) for f in $fx; do mimeo $f > /dev/null 2> /dev/null & done;;
 	esac
 }}
@@ -75,9 +75,6 @@ map - $~/.config/lf/draw.sh "$f"
 #map Jumpings
 map go cd /opt
 map ge cd /etc
-map gm cd /media
+map gm cd /data
 map gr cd /
 map gd cd ~/Downloads
-#map gt cd ~/.local/share/Trash/
-
-map tc rm ~/.local/share/Trash/files
