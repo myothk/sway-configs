@@ -30,7 +30,7 @@
 	},
 	
 	"clock": {
-		"format": "{:%I:%M<small> %p</small>}",
+		"format": "{:%I:%M %p}",
 		"interval": 1,
 		"format-alt": "{:%a %d/%m/%y - %T}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -54,7 +54,7 @@
 		}	
 	},
 	"network": {
-		"format-wifi": "{bandwidthUpBits} {bandwidthDownBits}",
+		"format-wifi": " {bandwidthUpBits}  {bandwidthDownBits}",
 		"format-disconnected":"",
 		"interval": 1,
 		"tooltip-format": "{ifname}",
