@@ -2,7 +2,8 @@
 #Preferences Mod1 for Windows/Super key. Mod1 for alt
 set $mod Mod4
 set $term foot
-set $dmenu dmenu-wl_run -h 40 -i -nb "#2a0033" -nf "#aaaaaa" -sf "#ffffff" -sb "#f5426c"
+#set $dmenu dmenu-wl_run -h 40 -i -nb "#2a0033" -nf "#aaaaaa" -sf "#ffffff" -sb "#f5426c"
+set $dmenu wofi -c ~/.config/wofi/config --show=drun -a
 set $left j
 set $right l
 set $up i
@@ -88,7 +89,7 @@ exec pipewire
 exec wireplumber
 exec pipewire-pulse
 exec /usr/libexec/polkit-mate-authentication-agent-1
-exec /usr/libexec/xdg-desktop-portal -r
+#exec /usr/libexec/xdg-desktop-portal -r
 output * bg ~/Pictures/wallpapers/mountain_1920x1080.png fill
 
 #Configs 
@@ -105,14 +106,17 @@ bar {
 }
 
 #assign apps to workspaces
-assign [app_id="^Firefox$"] 2
-for_window [app_id="^Firefox"] workspace number 2
+assign [class="^Firefox$"] 2
+for_window [class="^Firefox$"] workspace number 2
 assign [app_id="^foot$"] 1
 for_window [app_id="^foot$"] workspace number 1
 assign [app_id="telegram"] 4
 for_window [app_id="telegram"] workspace number 4
 assign [app_id="^blender$"] 3
 for_window [app_id="^blender$"] workspace 3
+assign [app_id="^chromium$"] 2
+for_window [app_id="^chromium$"] workspace number 2
+
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #f5426c #f5426c #ffffff #74b3ed   #f5426c
