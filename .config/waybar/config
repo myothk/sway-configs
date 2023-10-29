@@ -61,9 +61,19 @@
 		"tooltip-format-wifi": "{essid} ({signalStrength}%)",	
 	},
 	"cpu": {
-		"interval": 1,
-		"format": "CPU: {}%"
-	},
+     		"interval": 1,
+     		"format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}",
+     		"format-icons": [
+          	"<span color='#69ff94'>▁</span>", // green
+          	"<span color='#2aa9ff'>▂</span>", // blue
+          	"<span color='#f8f8f2'>▃</span>", // white
+          	"<span color='#f8f8f2'>▄</span>", // white
+          	"<span color='#ffffa5'>▅</span>", // yellow
+          	"<span color='#ffffa5'>▆</span>", // yellow
+          	"<span color='#ff9977'>▇</span>", // orange
+          	"<span color='#dd532e'>█</span>"  // red
+     ]
+},
 	"custom/gpu": {
 		"interval": 1,
 		"format": "{}",
@@ -71,7 +81,7 @@
 		"tooltip":false
 	},
 	"memory":{
-		"format": "{used:.2f}/{total:.2f} GiB",
+		"format": "{used:.1f}/{total:.1f} GiB",
 		"interval": 1
 	},
 	"pulseaudio": {
