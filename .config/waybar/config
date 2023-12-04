@@ -5,7 +5,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces","cpu","custom/gpu","custom/fanmode","sway/language"],
 	"modules-center": ["tray","sway/mode"],
-	"modules-right": ["network","pulseaudio","memory","disk","clock","battery"],
+	"modules-right": ["network","pulseaudio","memory","clock","battery"],
 	
 	//moduels configuration
 	"sway/workspaces":{
