@@ -75,6 +75,6 @@ map - $~/.config/lf/draw.sh "$f"
 #map Jumpings
 map go cd /opt
 map ge cd /etc
-map gm cd /data
+map gm cd /home/data
 map gr cd /
 map gd cd ~/Downloads
