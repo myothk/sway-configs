@@ -18,5 +18,6 @@ then
 #	__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 	IGPU=`readlink -f /dev/dri/by-path/pci-0000\:00\:02.0-card`
 
+	gsettings set org.gnome.desktop.interface cursor-theme Breeze_Amber	#set cursor theme
 	WLR_DRM_DEVICES="$IGPU" exec dbus-run-session sway --unsupported-gpu
 fi
