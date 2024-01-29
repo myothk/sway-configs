@@ -3,11 +3,11 @@
 __Distribution - Void Linux__  
 wm - sway  
 termianl - foot  
-menu - dmenu-wl  
+menu - wofi  
 notifications - mako  
 bar - waybar  
-polkit - mate-polkit (because it have no dependency)  
-filemanager - lf  
+polkit - mate-polkit  
+tui-filemanager - lf  
 editor - neovim  
 image viewer - imv  
 wallpaper - https://wallhaven.cc/w/kxj3l1
