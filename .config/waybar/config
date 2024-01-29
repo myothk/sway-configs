@@ -2,8 +2,8 @@
 //Need nerd fonts, and fontawesome6.
 {
 	"position": "top",
-	"height": 30,
-	"modules-left": ["sway/workspaces","cpu","custom/gpu","custom/fanmode","sway/language"],
+	"height": 40,
+	"modules-left": ["sway/workspaces","cpu","custom/powermode","custom/gpu","custom/fanmode","sway/language"],
 	"modules-center": ["tray","sway/mode"],
 	"modules-right": ["network","pulseaudio","memory","clock","battery"],
 	
@@ -14,18 +14,20 @@
 		"format-icons": {
 			"1": "",
 			"2": "",
-			"3": "",
+			"3": "",
 			"4": "",
+			"5": "",
 
 			"urgent": "",
 			//"focused": "\uf32e",
 			"default": ""
 		},
-		"persistent_workspaces":{
+		"persistent-workspaces":{
 			"1":[],
 			"2":[],
 			"3":[],
-			"4":[]
+			"4":[],
+			"5":[],
 		}
 	},
 	
@@ -54,6 +56,7 @@
 		}	
 	},
 	"network": {
+		"format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits}  ",
 		"format-wifi": " {bandwidthUpBits}  {bandwidthDownBits}",
 		"format-disconnected":"",
 		"interval": 1,
@@ -73,7 +76,7 @@
           	"<span color='#ff9977'>▇</span>", // orange
           	"<span color='#dd532e'>█</span>"  // red
      ]
-},
+},	
 	"custom/gpu": {
 		"interval": 1,
 		"format": "{}",
@@ -109,8 +112,8 @@
 			"critical": 15,
 		},
 		"format": "{capacity} {icon}",
-		"format-charging": "{capacity} 󰂅",
-        	"format-icons": ["󰁺","󰁼","󰁽","󰁾","󰁿","󰂁","󰂂","󰁹"],
+		"format-charging": "{capacity} ",
+        	"format-icons": ["","","","","",""],
         	"tooltip-format": "{time}"
 	},
 	"tray": {
@@ -125,5 +128,10 @@
 		"exec": "~/.config/scripts/fanmodecontrol.sh show 2> /dev/null",
 		"interval": 1,
 		"tooltip": false,
-	}	
+	},
+	"custom/powermode":{
+		"exec": "~/.config/scripts/powermode.sh show 2> /dev/null",
+		"interval": 1,
+		"tooltip": false,
+	},
 }
