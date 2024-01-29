@@ -4,9 +4,9 @@ set $mod Mod4
 set $term foot
 #set $dmenu dmenu-wl_run -h 40 -i -nb "#2a0033" -nf "#aaaaaa" -sf "#ffffff" -sb "#f5426c"
 set $dmenu wofi -c ~/.config/wofi/config --show=drun -a
-set $left j
+set $left h
 set $right l
-set $up i
+set $up j
 set $down k
 set $resizepx 10px
 floating_modifier $mod normal
@@ -50,8 +50,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Down focus down
 
 
-bindsym $mod+h splith
-bindsym $mod+v splitv
+bindsym mod1+h splith
+bindsym mod1+v splitv
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
