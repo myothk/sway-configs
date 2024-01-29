@@ -10,4 +10,4 @@ if  test -f "$FILE"; then
 		"active") GPU="on";;
 	esac
 fi
-echo "GPU: $GPU"
+echo "dGPU: $GPU"
