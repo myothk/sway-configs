@@ -4,7 +4,21 @@
 # This is run by runit in stage 2 before the services are executed
 # (see /etc/runit/2).
 clear
-nvidia-persistenced --user=mthk
+
+#Set fan to asus silent mode
 chmod 666 /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy
 echo 2 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy
+
+#Set keyboard brightness to max brightness
 echo $(cat /sys/class/backlight/intel_backlight/max_brightness) > /sys/class/backlight/intel_backlight/brightness
+
+#CPU frequency and performance optimizations
+chmod 666 /sys/devices/system/cpu/intel_pstate/no_turbo
+echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
+
+#CPU modes
+chmod 666 /sys/devices/system/cpu/cpu*/power/energy_perf_bias
+if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ];then
+	echo 15 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias >/dev/null
+else echo 6 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias >/dev/null
+fi
