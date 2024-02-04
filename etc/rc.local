@@ -6,19 +6,31 @@
 clear
 
 #Set fan to asus silent mode
-chmod 666 /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy
-echo 2 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy
+thermal_file="/sys/devices/platform/asus-nb-wmi/throttle_thermal_policy"
+if [ -e $thermal_file ]; then
+	chmod 666 $thermal_file
+	echo 2 > $thermal_file
+fi
 
 #Set keyboard brightness to max brightness
-echo $(cat /sys/class/backlight/intel_backlight/max_brightness) > /sys/class/backlight/intel_backlight/brightness
+if [ -e /sys/class/backlight/intel_backlight/max_brightness ] && [ -e /sys/class/backlight/intel_backlight/brightness ]; then
+	echo $(cat /sys/class/backlight/intel_backlight/max_brightness) > /sys/class/backlight/intel_backlight/brightness
+fi
 
 #CPU frequency and performance optimizations
-chmod 666 /sys/devices/system/cpu/intel_pstate/no_turbo
-echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
-
-#CPU modes
-chmod 666 /sys/devices/system/cpu/cpu*/power/energy_perf_bias
-if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ];then
-	echo 15 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias >/dev/null
-else echo 6 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias >/dev/null
+if [ -e /sys/devices/system/cpu/intel_pstate/no_turbo ]; then
+	chmod 666 /sys/devices/system/cpu/intel_pstate/no_turbo
+	echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
 fi
+
+#CPU perf_modes
+energy_mode=6
+if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ]; then
+	energy_mode=15
+fi
+for energy_dir in /sys/devices/system/cpu/cpu*/power/; do
+	if [ -e "$energy_dir/energy_perf_bias" ]; then
+		chmod 666 "$energy_dir/energy_perf_bias"
+		echo $energy_mode > "$energy_dir/energy_perf_bias"
+	fi
+done
