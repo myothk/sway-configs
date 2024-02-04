@@ -92,7 +92,7 @@ exec pipewire
 exec wireplumber
 exec pipewire-pulse
 exec /usr/libexec/polkit-mate-authentication-agent-1
-#exec /usr/libexec/xdg-desktop-portal-wlr -r
+exec /usr/libexec/xdg-desktop-portal-wlr -r
 exec gsettings set org.gnome.desktop.interface cursor-theme Breeze_Amber
 
 output * bg ~/Pictures/wallpapers/mountain_1920x1080.png fill
