@@ -85,8 +85,6 @@ bindsym $mod+Print exec grimshot --notify save active ~/Pictures/Screenshots/$(d
 bindsym Alt+Print exec grimshot --notify save area  ~/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d-%H-%M-%S-%3N_cropped.png')
 
 
-xwayland disable
-
 #######   Startups  #######
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec mako
@@ -121,6 +119,7 @@ assign [app_id="^org.telegram.desktop$"] 4
 for_window [app_id="^org.telegram.desktop$"] workspace number 4
 assign [app_id="^blender$"] 3
 for_window [app_id="^blender$"] workspace 3
+for_window [app_id="^pavucontrol$"] floating enable; resize set 500 300; move position 1420 px 0 ppt;
 
 
 ####Theme####
