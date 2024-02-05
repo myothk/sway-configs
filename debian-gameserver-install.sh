@@ -17,11 +17,13 @@ config_sway(){
   touch ~/.config/sway/config
   config="~/.config/sway/config"
   >$config
-  echo -e "set \$mod Mod4
+  echo -e "###start of config###
+  set \$mod Mod4
   set \$term foot
   default border pixel 2
   bindsym \$mod+Return exec \$term
-  assign [app_id='^Steam$'] workspace number 2" >> $config
+  assign [app_id='^Steam$'] workspace number 2
+  ##end of config ###" >> $config
 }
 config_nvidia(){
   sudo dpkg --add-architecture i386 && sudo apt update
