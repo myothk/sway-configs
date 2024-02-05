@@ -4,7 +4,9 @@
 packages="sway polkit foot thermald"
 
 sudo apt update && sudo apt install -y "$packages"
+main(){
 
+}
 config_sway(){
   mkdir -p ~/.config/sway/
   touch ~/.config/sway/config
@@ -46,4 +48,8 @@ config_system(){
   fi
   if [ -e "/sys/devices/platform/asus-nb-wmi/throttle_thermal_policy" ] then
     echo 'echo "1" > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy' >> $rclocal
+  fi
+}
+config_prepare(){
+
 }
