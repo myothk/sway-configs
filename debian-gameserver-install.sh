@@ -9,7 +9,7 @@
 # CPU: Intel core i7-9750h 
 # GPU: Nvidia GTX 1660ti(mobile)
 
-# This script do the following tasts.
+# This script do the following tasks.
 # Configure apt and install all required packages and softwares.
 # Disable intel turbo boost (for lower cpu temperature)
 # Set fan mode to asus turbo mode (via asus-nb-wmi kernel module)
