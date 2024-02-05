@@ -5,11 +5,11 @@ packages="sway polkit foot thermald"
 
 sudo apt update && sudo apt install -y "$packages"
 
-
 config_sway(){
   mkdir -p ~/.config/sway/
   touch ~/.config/sway/config
   config="~/.config/sway/config"
+  >$config
   echo -e "set \$mod Mod4
   set \$term foot
   default border pixel 2
@@ -24,6 +24,14 @@ config_nvidia(){
 }
 config_apt(){
   aptconfig="/etc/apt/sources.list"
+  echo -e "deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+  deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+
+  deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+  deb-src http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+
+  deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+  deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" > $aptconfig
   
 }
 config_system(){
