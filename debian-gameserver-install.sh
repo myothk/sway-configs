@@ -1,11 +1,16 @@
 #!/bin/bash
 
 #sway with moonlight and steam headless setup
-packages="sway polkit foot thermald"
 
-sudo apt update && sudo apt install -y "$packages"
+main
+
+####Functions####
 main(){
-
+  config_apt
+  packages="sway polkit foot thermald dbus"
+  sudo apt update && sudo apt install -y "$packages"
+  config_nvidia
+  config_system
 }
 config_sway(){
   mkdir -p ~/.config/sway/
@@ -26,6 +31,7 @@ config_nvidia(){
 }
 config_apt(){
   aptconfig="/etc/apt/sources.list"
+  echo "Configuring apt"
   echo -e "deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
   deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 
@@ -34,7 +40,7 @@ config_apt(){
 
   deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
   deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" > $aptconfig
-  
+  echo "Finished configuring apt. exit code: $?"
 }
 config_system(){
   turbo="/sys/devices/system/cpu/intel_pstate/no_turbo"
