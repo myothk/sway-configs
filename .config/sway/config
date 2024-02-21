@@ -6,8 +6,8 @@ set $term foot
 set $dmenu wofi -c ~/.config/wofi/config --show=drun -a
 set $left h
 set $right l
-set $up j
-set $down k
+set $up k
+set $down j
 set $resizepx 10px
 floating_modifier $mod normal
 
