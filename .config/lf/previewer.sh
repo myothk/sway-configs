@@ -5,7 +5,7 @@ case "$1" in
 	*.rar) unrar l "$1";;
 	*.7z) 7z l "$1";;
 	*.pdf) pdftotext "$1" -;;
-	*.png | *.svg) chafa "$1" -f sixel -s "$2x$3" --animate false
+	*.png | *.svg) chafa "$1" -f sixel -s "$2x$3" --animate false --polite on
 		exit 1;;
 #	*)[ -z $(highlight -O ansi "$1" || true) ] && cat "$1" || highlight -O ansi "$1";	
 	*) cat "$1";;
